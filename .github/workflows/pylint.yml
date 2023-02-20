@@ -23,8 +23,8 @@ jobs:
     - name: Analysing the code with pylint
       id: pylint
       run: |
-        STDOUT=$(pylint . --reports=y --recursive=y --output-format=text --exit-zero)
-        echo "::set-output name=pylint-output::Thank you:😀"
+        STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
+        echo "::set-output name=pylint-output::$STDOUT"
     - uses: actions/github-script@v6
       if: ${{ always() }}
       with:
