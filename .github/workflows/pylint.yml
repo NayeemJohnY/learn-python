@@ -24,8 +24,8 @@ jobs:
       id: pylint
       shell: bash
       run: |
-          STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
-          SCORE=$(echo "$out" | grep "Your")
+          pyout=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
+          SCORE=$(echo "$pyout" | grep "Your")
           echo "::set-output name=score::$SCORE"
     - uses: actions/github-script@v6
       if: ${{ always() }}
