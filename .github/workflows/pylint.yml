@@ -24,7 +24,7 @@ jobs:
       id: pylint
       run: |
           STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
-          SCORE=grep "Your" $STDOUT
+          SCORE=$(grep "Your" $STDOUT)
           echo "::set-output name=score::$SCORE"
     - uses: actions/github-script@v6
       if: ${{ always() }}
