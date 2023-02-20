@@ -21,4 +21,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --reports=y --recursive=y --output-format=colorized
+        pylint $(git ls-files '*.py') --reports=y --recursive=y --output-format=text
