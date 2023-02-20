@@ -23,8 +23,7 @@ jobs:
     - name: Analysing the code with pylint
       id: pylint
       run: |
-          output=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
-          STDOUT=$(echo $output)
+          STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
           STDOUT="${STDOUT//'%'/'%25'}"
           STDOUT="${STDOUT//$'\n'/'%0A'}"
           STDOUT="${STDOUT//$'\r'/'%0D'}"
@@ -37,6 +36,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '${{ steps.pylint.outputs.dispatchStdout }}'
+              body: ${{ steps.pylint.outputs.dispatchStdout }}
             })
             
