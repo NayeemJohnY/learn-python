@@ -5,7 +5,7 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+        steps:
       - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -14,20 +14,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint
       - name: Analyzing the code with pylint
-        id: pylint-analysis
         run: |
           pylint . --reports=y --recursive=y --output-format=colorized:pylint-analysis.log --fail-on=E --fail-under=7
+      - name: Get pylint score
+        id: pylint-score
+        if: ${{ always() }}
+        run: |
           cat pylint-analysis.log
           SCORE=$(grep "Your" pylint-analysis.log)
           echo "::set-output name=score::$SCORE"
       - uses: actions/github-script@v6
-        if: ${{ always() }}
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `**${{ steps.pylint-analysis.outputs.score }}**. 
+              body: `**${{ steps.pylint-score.outputs.score }}**. 
                       Please refer to the workflow run (Check) for further details.`
             })
