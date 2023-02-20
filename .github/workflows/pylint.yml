@@ -24,7 +24,7 @@ jobs:
       id: pylint
       run: |
         output=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
-        echo "STDOUT_MSG=$output" >> $GITHUB_STEP_SUMMARY
+        echo "STDOUT_MSG='$output'" >> $GITHUB_OUTPUT
     - uses: actions/github-script@v6
       if: ${{ always() }}
       with:
