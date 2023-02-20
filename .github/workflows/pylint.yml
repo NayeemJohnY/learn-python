@@ -24,7 +24,7 @@ jobs:
       id: pylint
       run: |
         STDOUT=$(pylint . --reports=y --recursive=y --output-format=text --exit-zero)
-        echo " echo "::set-output name=pylint-output::$STDOUT"
+        echo "::set-output name=pylint-output::$STDOUT"
     - uses: actions/github-script@v6
       if: ${{ always() }}
       with:
