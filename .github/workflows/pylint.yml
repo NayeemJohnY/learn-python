@@ -24,6 +24,7 @@ jobs:
           SCORE=$(grep "Your" pylint-analysis.log)
           echo "::set-output name=score::$SCORE"
       - uses: actions/github-script@v6
+        if: ${{ always() }}
         with:
           script: |
             github.rest.issues.createComment({
