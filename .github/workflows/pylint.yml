@@ -15,7 +15,7 @@ jobs:
           pip install pylint
       - name: Analyzing the code with pylint
         run: |
-          pylint constant.py --reports=y --recursive=y --output-format=colorized:pylint-analysis.log --fail-on=E --fail-under=7
+          pylint . --reports=y --recursive=y --output-format=colorized:pylint-analysis.log --fail-on=E --fail-under=7
         continue-on-error : true
       - name: Get pylint score
         id: pylint-score
