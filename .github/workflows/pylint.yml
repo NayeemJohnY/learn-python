@@ -23,16 +23,17 @@ jobs:
     - name: Analysing the code with pylint
       id: pylint
       run: |
-        STDOUT=$(pylint . --reports=y --recursive=y --output-format=text --exit-zero)
-        echo "::set-output name=pylint-output::$STDOUT"
+        output=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
+        echo "STDOUT_MSG=$output" >> $GITHUB_ENV
     - uses: actions/github-script@v6
       if: ${{ always() }}
       with:
         script: |
-            github.rest.issues.createComment({
+           const STDOUT_MSG = process.env.STDOUT_MSG
+           github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '${{ steps.pylint.outputs.pylint-output }}'
+              body: STDOUT_MSG
             })
             
