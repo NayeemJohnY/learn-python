@@ -22,11 +22,11 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       id: pylint
+      shell: bash
       run: |
           STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
           SCORE=$(echo "$out" | grep "Your")
           echo "::set-output name=score::$SCORE"
-      shell: bash
     - uses: actions/github-script@v6
       if: ${{ always() }}
       with:
