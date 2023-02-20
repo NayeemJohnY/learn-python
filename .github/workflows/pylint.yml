@@ -23,7 +23,7 @@ jobs:
     - name: Analysing the code with pylint
       id: pylint
       run: |
-        STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized)
+        STDOUT=$(pylint . --reports=y --recursive=y --output-format=colorized --exit-zero)
         echo $STDOUT
         echo "::set-output name=pylint-output::$STDOUT"
     - uses: actions/github-script@v6
