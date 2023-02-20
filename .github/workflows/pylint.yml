@@ -15,12 +15,12 @@ jobs:
           pip install pylint
       - name: Analyzing the code with pylint
         run: |
-          pylint . --reports=y --recursive=y --output-format=colorized:pylint-analysis.log --fail-on=E --fail-under=7)
+          pylint . --reports=y --recursive=y --output-format=colorized:pylint-analysis.log --fail-on=E --fail-under=7
           cat pylint-analysis.log
           SCORE=$(grep "Your" pylint-analysis.log)
           echo "::set-output name=score::$SCORE"
       - uses: actions/github-script@v6
-        if: ${{ always() }}
+        if: ${{ success() || failure() }}
         with:
           script: |
             github.rest.issues.createComment({
