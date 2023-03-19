@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  DOCKER_IMAGE_NAME: "kb-ist-test-artifacts"
 jobs:
 
   build:
@@ -16,6 +18,6 @@ jobs:
     - name: Checkout the repository source code
       uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag python-pylint-image
+      run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_NAME:latest
     - name: Run Tests
-      run: docker run -it -rm python-pylint-image
+      run: docker run -it $DOCKER_IMAGE_NAME:latest
