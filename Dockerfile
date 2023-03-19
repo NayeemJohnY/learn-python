@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install pylint
 
-CMD ["pylint" , " ." ," --reports=y" , "--recursive=y" ,"--output-format=text", "--fail-under", "2"]
+RUN pylint . --reports=y --recursive=y --output-format=text --fail-under 2
