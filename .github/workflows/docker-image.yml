@@ -16,6 +16,6 @@ jobs:
     - name: Checkout the repository source code
       uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag python-pylint-image
     - name: Run Tests
-      run: docker run -it
+      run: docker run -it -rm python-pylint-image
