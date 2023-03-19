@@ -20,4 +20,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_NAME:latest
     - name: Run Tests
-      run: docker run -it $DOCKER_IMAGE_NAME:latest
+      run: docker run $DOCKER_IMAGE_NAME:latest
