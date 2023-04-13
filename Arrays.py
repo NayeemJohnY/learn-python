@@ -1,7 +1,7 @@
 from array import *
 import math
 
-vals = array("i", [7,8,9,9,7,6])
+vals = array("i", [7,8,9,9,7,6, 10])
 print(vals)
 
 for e in vals:
