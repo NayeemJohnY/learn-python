@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event == 'pull_request' || github.event.review.state == 'approved' }}
+    if: ${{ github.event_name == 'pull_request' || github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
