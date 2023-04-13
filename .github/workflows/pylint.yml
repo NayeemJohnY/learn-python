@@ -3,8 +3,12 @@ name: Pylint
 on: 
   workflow_dispatch:
   pull_request:
-   types:
-    - opened
+    branches-ignore:
+      - "cron-jobs"
+    paths:
+      - "**.py"
+    types:
+     - opened
   pull_request_review:
    types:
       - submitted
