@@ -7,6 +7,8 @@ on:
       - "cron-jobs"
     paths:
       - "**.py"
+    types:
+     - opened
   pull_request_review:
    types:
       - submitted
@@ -14,7 +16,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.pull_request.action == 'created' || github.event.review.state == 'approved' }}
+    if: ${{ github.event == 'pull_request' || github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
