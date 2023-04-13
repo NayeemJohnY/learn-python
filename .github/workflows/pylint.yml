@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.pull_request.action == 'opened' || github.event.review.state == 'approved' }}
+    if: ${{ github.event.pull_request.action == 'created' || github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
