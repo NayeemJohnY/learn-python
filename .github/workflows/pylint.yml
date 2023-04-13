@@ -7,8 +7,6 @@ on:
       - "cron-jobs"
     paths:
       - "**.py"
-    types:
-     - opened
   pull_request_review:
    types:
       - submitted
