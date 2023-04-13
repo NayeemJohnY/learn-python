@@ -11,7 +11,7 @@ import mysql.connector
 # Zip
 
 names = ["nayeem", "John","Dinesh", "Vinoth"]
-comps = ["Cognizant", "IBM", "Cognizant", "Capgemini"]
+comps = ["Cognizant", "IBM", "Cognizanst", "Capgemini"]
 
 
 for (a,b) in zip(names, comps):
