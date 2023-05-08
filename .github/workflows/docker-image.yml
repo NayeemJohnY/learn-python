@@ -8,20 +8,24 @@ on:
         type: choice
         required: true
         options:
+          - recursive 
           - test
           - suite
-          - recursive
+
       test_suite_name:
         description: Test / Suite Name
         required: true
+        default: y
+      
       run_time:
         description: Run time for performance test
         required: false
+        default: y
       users:
         description: Number of users for performance test
         required: false
-        type: number
-        default: 1
+        type: string 
+        default: text
 jobs:
 
   build:
