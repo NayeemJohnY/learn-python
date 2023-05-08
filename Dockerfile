@@ -18,5 +18,5 @@ $RUN_TIME' > run-ui.sh
 
 RUN ["chmod", "+x", "run-ui.sh"]
 
-CMD ["cat" "run-ui.sh"]
+RUN ["cat" "run-ui.sh"]
 CMD ./run-ui.sh
