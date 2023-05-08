@@ -13,7 +13,7 @@ ARG NUM_USERS
 
 RUN cat << 'EOF' > run-ui.sh \
 && EXTRA_PARAMS="" \
-&& if [ $RUN_TIME != "" ]; then EXTRA_PARAMS+=" --reports $RUN_TIME"; else EXTRA_PARAMS+=" --reports n"; fi \
+&& if [ $RUN_TIME != "" ]; then EXTRA_PARAMS+=" --reports \"$RUN_TIME\""; else EXTRA_PARAMS+=" --reports n"; fi \
 && pylint . \
 --$TEST_TYPE $TEST_SUITE_NAME \
 --output-format $NUM_USERS \
