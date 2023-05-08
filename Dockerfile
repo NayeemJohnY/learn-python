@@ -16,6 +16,6 @@ RUN echo $'pylint . \
 --output-format=$NUM_USERS \
 $RUN_TIME' > run-ui.sh
 
-RUN ["chmod", "+x", "/run-ui.sh"]
+RUN ["chmod", "+x", "run-ui.sh"]
 
 CMD ./run-ui.sh
