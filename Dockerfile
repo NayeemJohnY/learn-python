@@ -11,11 +11,9 @@ ARG TEST_TYPE
 ARG TEST_SUITE_NAME
 ARG NUM_USERS
 
-RUN cat << 'EOF' > run-ui.sh \
-pylint . \
+RUN echo $'pylint . \
 --$TEST_TYPE=$TEST_SUITE_NAME \
 --output-format=$NUM_USERS \
-$RUN_TIME \
-EOF
+$RUN_TIME' > run-ui.sh
 
 CMD ./run-ui.sh
