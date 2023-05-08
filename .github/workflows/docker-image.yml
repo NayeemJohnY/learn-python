@@ -36,7 +36,7 @@ jobs:
         EXTRA_PARAMS=""
         if [ ${{ inputs.run_time }} != "" ]; then EXTRA_PARAMS+=" --run-time ${{ inputs.run_time }}"; else EXTRA_PARAMS+=" --iterations 1"; fi
         docker build -t kb-ist-automation-test \
-        --build-arg=RUN_TIME=$EXTRA_PARAMS \
+        --build-arg=RUN_TIME="$EXTRA_PARAMS" \
         --build-arg=TEST_TYPE=${{ inputs.test_type }} \
         --build-arg=TEST_SUITE_NAME=${{ inputs.test_suite_name }} \
         --build-arg=NUM_USERS=${{ inputs.users }} .
