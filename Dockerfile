@@ -15,6 +15,6 @@ RUN cat << 'EOF' > run-ui.sh \
 && pylint . \
 --$TEST_TYPE=$TEST_SUITE_NAME \
 --output-format=$NUM_USERS \
-$RUN_TIME \
+$RUN_TIME
 
-ENTRYPOINT ./run-ui.sh
+CMD ./run-ui.sh
