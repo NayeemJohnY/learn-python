@@ -16,4 +16,4 @@ RUN echo $'pylint . \
 --output-format=$NUM_USERS \
 $RUN_TIME' > run-ui.sh
 
-CMD ./run-ui.sh
+ENTRYPOINT ['sh', './run-ui.sh']
