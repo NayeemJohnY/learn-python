@@ -13,8 +13,8 @@ ARG NUM_USERS
 
 RUN cat << 'EOF' > run-ui.sh \
 && pylint . \
---"$TEST_TYPE" "$TEST_SUITE_NAME" \
---output-format:"$NUM_USERS" \
-${RUN_TIME} \
+--$TEST_TYPE=$TEST_SUITE_NAME \
+--output-format:$NUM_USERS \
+$RUN_TIME \
 
 CMD run-ui.sh
