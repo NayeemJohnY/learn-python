@@ -17,4 +17,4 @@ RUN cat << 'EOF' > run-ui.sh \
 --output-format=$NUM_USERS \
 $RUN_TIME \
 
-CMD run-ui.sh
+CMD ./run-ui.sh
