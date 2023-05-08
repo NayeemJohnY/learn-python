@@ -33,8 +33,10 @@ jobs:
       uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
+        EXTRA_PARAMS=""
+        if [ -z "$RUN_TIME" ]; then EXTRA_PARAMS+=" --reports "$RUN_TIME""; else EXTRA_PARAMS+=" --reports n"; fi
         docker build -t kb-ist-automation-test \
-        --build-arg=RUN_TIME=${{ inputs.run_time }} \
+        --build-arg=RUN_TIME=$EXTRA_PARAMS \
         --build-arg=TEST_TYPE=${{ inputs.test_type }} \
         --build-arg=TEST_SUITE_NAME=${{ inputs.test_suite_name }} \
         --build-arg=NUM_USERS=${{ inputs.users }} .
