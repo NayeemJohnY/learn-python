@@ -34,7 +34,7 @@ jobs:
     - name: Build the Docker image
       run: |
         EXTRA_PARAMS=""
-        if [ -z "$RUN_TIME" ]; then EXTRA_PARAMS+=" --reports "$RUN_TIME""; else EXTRA_PARAMS+=" --reports n"; fi
+        if [ ${{ inputs.run_time }} != "" ]; then EXTRA_PARAMS+=" --run-time ${{ inputs.run_time }}"; else EXTRA_PARAMS+=" --iterations 1"; fi
         docker build -t kb-ist-automation-test \
         --build-arg=RUN_TIME=$EXTRA_PARAMS \
         --build-arg=TEST_TYPE=${{ inputs.test_type }} \
