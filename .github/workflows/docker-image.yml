@@ -42,8 +42,8 @@ jobs:
         --build-arg=NUM_USERS=${{ inputs.users }} .
     - name: Run Docker Container
       run: |
-          docker run --name kb-ist-automation-test -i -v $(pwd):/app
+          docker run -i -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest 
 
     - name: Docker Container Logs
       run: |
-          docker logs $(docker ps -aqf "name="kb-ist-automation-test")
+          docker logs $(docker ps -aqf "name="kb-ist-automation-test-container")
