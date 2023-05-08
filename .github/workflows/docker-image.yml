@@ -10,6 +10,7 @@ on:
         options:
           - test
           - suite
+          - recursive
       test_suite_name:
         description: Test / Suite Name
         required: true
