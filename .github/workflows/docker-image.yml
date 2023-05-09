@@ -44,9 +44,9 @@ jobs:
         --output-format=${{ inputs.users }} \
         $EXTRA_PARAMS'
 
-        docker build -t kb-ist-automation-test  .
+        docker build -t kb-ist-automation-test .
 
-        docker run -i -v -d $(pwd):/test-app --name kb-ist-automation-test-container kb-ist-automation-test /bin/sh
+        docker run -i -d -v $(pwd):/test-app --name kb-ist-automation-test-container kb-ist-automation-test /bin/sh
 
         docker exec -it kb-ist-automation-test $COMMAND
         
