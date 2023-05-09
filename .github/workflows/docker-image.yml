@@ -52,6 +52,6 @@ jobs:
         docker run -v $(pwd):/app --name kb-ist-automation    -test-container kb-ist-automation-test:latest 
         docker ps -a
 
-        docker image ls
 
-        docker logs $(docker ps -aqf "name=kb-ist-automation-test-container")
+
+        docker logs --deatils -kb-ist-automation-test-container
