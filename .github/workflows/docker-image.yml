@@ -50,19 +50,19 @@ jobs:
 
         docker exec -i kb-ist-automation-test-container $COMMAND
 
-     - name: Upload artifacts
-       if: always()
-       uses: actions/upload-artifact@v3
-       with:
-          name: test-results
-          path: |
-            pylint-analysis.log
-          if-no-files-found: ignore
-          retention-days: 2
+    - name: Upload artifacts
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: |
+          pylint-analysis.log
+        if-no-files-found: ignore
+        retention-days: 2
 
-      - name: kill the container
-        if: always()
-        run: |
-          docker ps -a
+    - name: kill the container
+      if: always()
+      run: |
+        docker ps -a
 
-          docker rm -f $(docker ps -aqf "name=kb-ist-automation-test-container")
+        docker rm -f $(docker ps -aqf "name=kb-ist-automation-test-container")
