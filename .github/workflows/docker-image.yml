@@ -54,4 +54,4 @@ jobs:
 
     - name: Docker Container Logs
       run: |
-          docker logs $(docker ps -aqf "name="kb-ist-automation-test-container")
+          docker logs $(docker ps -aqf "name=kb-ist-automation-test-container")
