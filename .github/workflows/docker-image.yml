@@ -47,11 +47,11 @@ jobs:
 
         docker build -t kb-ist-automation-test \
         --build-arg=COMMAND="$COMMAND" .
-        
-    - name: Run Docker Container
-      run: |
-          docker run -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest 
 
-    - name: Docker Container Logs
-      run: |
-          docker logs $(docker ps -aqf "name=kb-ist-automation-test-container")
+
+        docker run -v $(pwd):/app --name kb-ist-automation    -test-container kb-ist-automation-test:latest 
+        docker ps -a
+
+        docker image ls
+
+        docker logs $(docker ps -aqf "name=kb-ist-automation-test-container")
