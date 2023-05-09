@@ -54,4 +54,4 @@ jobs:
 
 
 
-        docker logs --deatils -kb-ist-automation-test-container
+        docker logs --details kb-ist-automation-test-container
