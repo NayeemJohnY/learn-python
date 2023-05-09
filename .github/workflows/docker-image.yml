@@ -49,9 +49,11 @@ jobs:
         --build-arg=COMMAND="$COMMAND" .
 
 
-        docker run -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest 
+        test=$(docker run -i -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest)
+        
+        echo $test
         docker ps -a
 
 
 
-        docker logs --details kb-ist-automation-test-container
+        docker logs kb-ist-automation-test-container
