@@ -46,11 +46,11 @@ jobs:
 
 
         docker build -t kb-ist-automation-test \
-        --build-arg=COMMAND="$COMMAND" \
+        --build-arg=COMMAND="$COMMAND"
         .
     - name: Run Docker Container
       run: |
-          docker run -i -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest 
+          docker run -i -v $(pwd):/app --no-TTY --name kb-ist-automation-test-container kb-ist-automation-test:latest 
 
     - name: Docker Container Logs
       run: |
