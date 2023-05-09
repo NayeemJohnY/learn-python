@@ -44,16 +44,12 @@ jobs:
         --output-format=${{ inputs.users }} \
         $EXTRA_PARAMS'
 
+        docker build -t kb-ist-automation-test  .
 
-        docker build -t kb-ist-automation-test \
-        --build-arg=COMMAND="$COMMAND" .
+        docker run -i -v -d $(pwd):/test-app --name kb-ist-automation-test-container kb-ist-automation-test /bin/sh
 
-
-        test=$(docker run -i -v $(pwd):/app --name kb-ist-automation-test-container kb-ist-automation-test:latest)
+        docker exec -it kb-ist-automation-test $COMMAND
         
-        echo $test
         docker ps -a
 
-
-
-        docker logs kb-ist-automation-test-container
+        docker rm -f $(docker ps -aqf "name=kb-ist-automation-test-container")

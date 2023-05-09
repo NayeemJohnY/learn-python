@@ -5,7 +5,3 @@ WORKDIR /test-app
 COPY . .
 
 RUN pip install pylint
-
-ARG COMMAND 
-
-CMD $COMMAND
