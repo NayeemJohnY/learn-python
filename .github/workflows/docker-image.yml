@@ -48,7 +48,7 @@ jobs:
 
         docker run -i -d -v $(pwd):/test-app --name kb-ist-automation-test-container kb-ist-automation-test /bin/sh
 
-        docker exec -it kb-ist-automation-test-container $COMMAND
+        docker exec -i kb-ist-automation-test-container $COMMAND
         
         docker ps -a
 
